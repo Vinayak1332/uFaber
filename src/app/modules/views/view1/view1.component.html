@@ -1,0 +1,112 @@
+<section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h1 class="mb-5">Insert User POST method</h1>
+
+              <form [formGroup]="registerForm" (ngSubmit)="insertUser()">
+                <div class="form-outline mb-4">
+                  <input type="id" formControlName="id" class="form-control form-control-lg" placeholder="Id"/>
+                  <mat-error *ngIf="submitted && myError('id','required')">Id is required field</mat-error>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" formControlName="username" class="form-control form-control-lg" placeholder="Username"/>
+                  <mat-error *ngIf="submitted && myError('username','required') && !myError('username','touched')">Id is required field</mat-error>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="email" formControlName="email" class="form-control form-control-lg" placeholder="Email"/>
+                  <mat-error *ngIf="submitted && myError('email','required') && !myError('email','touched')">Id is required field</mat-error>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="email" formControlName="phoneNo" class="form-control form-control-lg" placeholder="Phone Number"/>
+                  <mat-error *ngIf="submitted && myError('phoneNo','required') && !myError('phoneNo','touched')">Phone Number is required field</mat-error>
+                </div>
+      
+                <button [disabled]="!submitted && registerForm.invalid" class="btn btn-primary btn-lg btn-block" type="submit">Insert User</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h1 class="mb-5">Update User With PUT method</h1>
+
+              <form [formGroup]="registerForm" (ngSubmit)="updateUser()">
+                <div class="form-outline mb-4">
+                  <input type="id" formControlName="id" class="form-control form-control-lg" placeholder="Id"/>
+                  <mat-error *ngIf="submitted && myError('id','required')">Id is required field</mat-error>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" formControlName="username" class="form-control form-control-lg" placeholder="Username"/>
+                  <mat-error *ngIf="submitted && myError('username','required') && !myError('username','touched')">Id is required field</mat-error>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="email" formControlName="email" class="form-control form-control-lg" placeholder="Email"/>
+                  <mat-error *ngIf="submitted && myError('email','required') && !myError('email','touched')">Id is required field</mat-error>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="email" formControlName="phoneNo" class="form-control form-control-lg" placeholder="Phone Number"/>
+                  <mat-error *ngIf="submitted && myError('phoneNo','required') && !myError('phoneNo','touched')">Phone Number is required field</mat-error>
+                  <mat-error *ngIf="myError('phoneNo','minLength')">Invalid phone number</mat-error>
+                </div>
+      
+                <button [disabled]="!submitted && registerForm.invalid" class="btn btn-primary btn-lg btn-block" type="submit">Update User</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vh-100" style="background-color: #508bfc;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h1 class="mb-5">Delete Users With DELETE method</h1>
+
+              <form [formGroup]="deleteForm" (ngSubmit)="deleteUser()">
+                <div class="form-outline mb-4">
+                  <input type="id" formControlName="id" class="form-control form-control-lg" placeholder="Id"/>
+                  <mat-error *ngIf="submitted && myError('id','required')">Id is required field</mat-error>
+                </div>
+      
+                <button [disabled]="!submitted && deleteForm.invalid" class="btn btn-primary btn-lg btn-block" type="submit">Delete User</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="vh-100" style="background-color: #508bfc">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+              <h1 style="color: black;font-style: oblique;">GET All Users</h1>
+              <div style="color: black;font-style: italic;font-size: 20px;" *ngFor="let a of data">{{a.id}}. Username: {{ a.username }} Email:{{a.email}} Phone No:{{a.phone_no}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>  
+
